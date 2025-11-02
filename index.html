@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAI Persona Generator</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎭 OpenAI Persona Generator</h1>
+            <p>Generate content in different personas using OpenAI API with detailed analytics</p>
+        </header>
+
+        <main>
+            <!-- Configuration Section -->
+            <section class="config-section">
+                <div class="form-group">
+                    <label for="apiKey">OpenAI API Key:</label>
+                    <input type="password" id="apiKey" placeholder="Enter your OpenAI API key">
+                    <small>Your API key is stored locally and never sent to our servers</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="model">OpenAI Model:</label>
+                    <select id="model">
+                        <!-- <option value="gpt-3.5-turbo">GPT-3.5 Turbo (Fastest)</option>
+                        <option value="gpt-4" selected>GPT-4 (Highest Quality)</option>
+                        <option value="gpt-4-turbo-preview">GPT-4 Turbo</option>
+                        <option value="gpt-5-nano">GPT-5-nano</option>
+                        <option value="dall-e-2">Dall-e-2</option> -->
+                        <option value="gpt-4o-mini" selected>GPT-4o-mini</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="form-group">
+                    <label for="topic">Topic/Content:</label>
+                    <textarea 
+                        id="topic" 
+                        placeholder="Enter your topic, product, or content idea..."
+                        rows="3"
+                    >AI-powered productivity tools</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="contentType">Content Type:</label>
+                    <select id="contentType">
+                        <option value="product_description">Product Description</option>
+                        <option value="tweet">Tweet</option>
+                        <option value="blog_post">Blog Post Introduction</option>
+                        <option value="email">Email</option>
+                        <option value="social_media">Social Media Post</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Personas:</label>
+                    <div class="persona-checkboxes">
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="witty_marketer" checked>
+                            🤹 Witty Marketer
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="serious_academic" checked>
+                            🎓 Serious Academic
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="friendly_customer_service" checked>
+                            😊 Friendly Customer Service
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="genz_influencer" checked>
+                            💫 Gen Z Influencer
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="maxLength">Max Length (characters):</label>
+                    <input type="number" id="maxLength" value="280" min="50" max="2000">
+                </div>
+
+                <div class="form-group">
+                    <label for="temperature">Temperature (creativity):</label>
+                    <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7">
+                    <span id="temperatureValue">0.7</span>
+                </div>
+
+                <button id="generateBtn" class="generate-btn">
+                    <span class="btn-text">Generate with OpenAI</span>
+                    <span class="btn-loading" style="display: none;">
+                        <div class="spinner"></div>
+                        Generating...
+                    </span>
+                </button>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section">
+                <div class="results-header">
+                    <h2>Generated Content</h2>
+                    <div class="results-actions">
+                        <button id="copyAllBtn" class="copy-btn">Copy All</button>
+                        <button id="exportBtn" class="export-btn">Export JSON</button>
+                    </div>
+                </div>
+                
+                <div class="analytics-summary" id="analyticsSummary" style="display: none;">
+                    <!-- Analytics will be populated here -->
+                </div>
+                
+                <div id="resultsContainer" class="results-container"></div>
+            </section>
+
+            <!-- Analytics Details -->
+            <section class="analytics-section" id="analyticsSection" style="display: none;">
+                <h3>📊 Detailed API Call Analytics</h3>
+                <div id="analyticsDetails" class="analytics-details">
+                    <!-- Detailed analytics will be populated here -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by OpenAI API | Latency tracking enabled | ITI</p>
+        </footer>
+    </div>
+
+    <script src="config/config.js"></script>
+    <script src="js/personaPrompts.js"></script>
+    <script src="js/analyticsService.js"></script>
+    <script src="js/openAIService.js"></script>
+    <script src="js/textGenerator.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
