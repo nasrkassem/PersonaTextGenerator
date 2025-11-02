@@ -40,8 +40,6 @@ Emails: Professional and engaging email content
 
 Social Media Posts: Platform-optimized social content
 
-🎬 Demo
-https://via.placeholder.com/800x400/667eea/ffffff?text=OpenAI+Persona+Generator
 
 Sample Output:
 
@@ -64,10 +62,6 @@ Modern web browser (Chrome, Firefox, Safari, Edge)
 Quick Start
 Clone or download the project
 
-bash
-git clone https://github.com/yourusername/openai-persona-generator.git
-cd openai-persona-generator
-Set up the project structure
 
 bash
 # Create the required directories
